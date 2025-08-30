@@ -104,8 +104,14 @@ export function TextInput({
     <input
       value={value}
       placeholder={placeholder}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => {
+        const num = e.target.value.replace(/[^0-9]/g, "");
+        onChange(num);
+      }}
+      type="number"
       inputMode="numeric"
+      pattern="[0-9]*"
+      min="0"
       style={{
         padding: "10px 12px",
         borderRadius: 10,

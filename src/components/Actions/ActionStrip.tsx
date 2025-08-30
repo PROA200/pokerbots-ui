@@ -92,7 +92,7 @@ function ActionStripImpl({
             disabled={disabled || !can("raise")}
             onClick={() => send("raise")}
           >
-            raise
+            raise to {amount}
           </ActionButton>
           <ActionButton disabled={disabled} onClick={onNext}>
             next game
