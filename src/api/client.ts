@@ -1,33 +1,33 @@
-export function useProxy(): boolean {
-    return String(import.meta.env.VITE_USE_PROXY || 'false') === 'true';
+function currentApiBase(): string {
+  const s = localStorage.getItem("apiBase");
+  const e = (import.meta as any).env?.VITE_API_BASE as string | undefined;
+  return s || e || "http://localhost:8000";
+}
+function makeUrl(p: string) {
+  return `${currentApiBase()}${p}`;
+}
+async function apiFetch<T = any>(p: string, init?: RequestInit): Promise<T> {
+  const u = makeUrl(p);
+  const r = await fetch(u, { credentials: "include", ...(init || {}) });
+  const t = await r.text();
+  let d: any;
+  try {
+    d = JSON.parse(t);
+  } catch {}
+  if (!r.ok) {
+    const m = d?.detail ?? d?.message ?? r.statusText;
+    throw new Error(typeof m === "string" ? m : String(m));
   }
-  
-  export function currentApiBase(): string {
-    const stored = localStorage.getItem('apiBase');
-    const envBase = (import.meta as any).env?.VITE_API_BASE as string | undefined;
-    return stored || envBase || 'http://localhost:8000';
-  }
-  
-  export function saveApiBase(url: string) {
-    localStorage.setItem('apiBase', url);
-  }
-  
-  export function makeUrl(path: string): string {
-    const proxy = useProxy();
-    const base = proxy ? '' : currentApiBase();
-    const prefix = proxy ? '/api' : '';
-    return `${base}${prefix}${path}`;
-  }
-  
-  export async function apiFetch<T = any>(path: string, init?: RequestInit): Promise<T> {
-    const url = makeUrl(path);
-    const res = await fetch(url, { credentials: 'include', ...(init || {}) });
-    const text = await res.text();
-    let data: any;
-    try { data = JSON.parse(text); } catch { /* non-JSON */ }
-    if (!res.ok) {
-      const msg = data?.detail ?? data?.message ?? res.statusText;
-      throw new Error(typeof msg === 'string' ? msg : String(msg));
-    }
-    return (data ?? text) as T;
-  }
+  return (d ?? t) as T;
+}
+import type { StateOut, MoveIn } from "../types";
+export async function getState(): Promise<StateOut> {
+  return apiFetch<StateOut>("/state");
+}
+export async function postMove(body: MoveIn): Promise<StateOut> {
+  return apiFetch<StateOut>("/move", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
