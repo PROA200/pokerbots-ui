@@ -23,6 +23,9 @@ jobs:
         with: { node-version: 20 }
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_API_BASE: ${{ secrets.VITE_API_BASE }}
+          VITE_USE_PROXY: "false"
       - run: npm run postbuild   # copy SPA fallback
       - uses: actions/upload-pages-artifact@v3
         with:

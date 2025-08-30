@@ -1,7 +1,7 @@
 function currentApiBase(): string {
   const s = localStorage.getItem("apiBase");
   const e = (import.meta as any).env?.VITE_API_BASE as string | undefined;
-  return s || e || "http://localhost:8000";
+  return e || s || "http://localhost:8000";
 }
 function makeUrl(p: string) {
   return `${currentApiBase()}${p}`;
