@@ -1,4 +1,3 @@
-import React from "react";
 import { theme } from "../../theme";
 import { Board } from "./Board";
 import { PlayerBar } from "./PlayerBar";
@@ -25,9 +24,7 @@ export function TableArea({
   const street = state?.street;
   const stacks: Record<number, number> = Object(state?.stacks ?? {});
   const hands: string[][] = Array.isArray(state?.hands) ? state.hands : [];
-  const mySeat = 0;
   const botIdx = state?.bot_idx ?? 0;
-  const oppSeat = 1;
   const myBounty = state?.bounties[1 - botIdx] ?? "";
   const oppBounty = state?.bounties[botIdx] ?? "";
   const pips = state?.pips ?? [0, 0];
@@ -69,7 +66,6 @@ export function TableArea({
           label={`Opponent`}
           stack={stacks[botIdx]}
           cards={hands[botIdx]}
-          pip={pips[botIdx]}
           reveal={isTerminal}
           placeholderCards={2}
           bounty={oppBounty}
@@ -90,7 +86,6 @@ export function TableArea({
           label={`You`}
           stack={stacks[1 - botIdx]}
           cards={hands[1 - botIdx]}
-          pip={pips[1 - botIdx]}
           reveal={true}
           bounty={myBounty}
         />

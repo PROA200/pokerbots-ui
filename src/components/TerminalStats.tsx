@@ -1,4 +1,3 @@
-import React from "react";
 import { Panel, Small } from "./ui";
 import { deriveFromLogs } from "../lib/logs";
 export function TerminalStats({ state }: { state: any }) {

@@ -1,4 +1,3 @@
-import React from "react";
 import { theme } from "../../theme";
 import { Card } from "../Cards/Card";
 import { CARD_SIZES } from "../../constants";
@@ -6,7 +5,6 @@ export function PlayerBar({
   label,
   stack,
   cards,
-  pip,
   reveal,
   placeholderCards,
   bounty,
@@ -14,7 +12,6 @@ export function PlayerBar({
   label: string;
   stack?: number;
   cards?: string[];
-  pip?: number;
   reveal?: boolean;
   placeholderCards?: number;
   bounty?: string;

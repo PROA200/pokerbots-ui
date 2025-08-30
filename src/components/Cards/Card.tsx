@@ -1,5 +1,4 @@
 /// <reference types="vite/client" />
-import React from "react";
 import { CARD_SIZES } from "../../constants";
 const deck = import.meta.glob("../../assets/english_cards/*.svg", {
   eager: true,

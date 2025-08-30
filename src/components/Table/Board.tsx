@@ -1,4 +1,3 @@
-import React from "react";
 import { theme } from "../../theme";
 import { Card } from "../Cards/Card";
 import { CARD_SIZES } from "../../constants";
