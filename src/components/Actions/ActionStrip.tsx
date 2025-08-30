@@ -1,4 +1,3 @@
-import React from "react";
 import { Panel, ActionButton, Pill, TextInput } from "../ui";
 import type { RaiseBounds } from "../../types";
 
