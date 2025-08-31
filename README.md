@@ -1,69 +1,17 @@
-# React + TypeScript + Vite
+# Play against our 2025 pokerbot!
+_created with Jordan Lefkowitz_
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- second place overall (first freshman team)
+- UI built with Vite + React + TypeScript
+- backend built with FastAPI + Python, with a Postgres database on Supabase.
+- bot uses Monte-Carlo CFR, with some tricks.
 
-Currently, two official plugins are available:
+- _Broken? Let me know!_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About the variant
 
-## Expanding the ESLint configuration
+Bounty Hold'em is a variant of No-Limit Texas Hold'em. The modification in the competition variant is that, every 25 rounds, each player is privately assigned a _bounty rank_ (e.g. 2 or A). If a player wins when the (up to 7) cards consisting of their private cards and the current board includes their bounty rank, they win 1.5 times the chips they would have normally won, and ten more. Here, the number of chips they would have originally won is all of the chips their opponent has bet, not the whole pot.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+For simplicity (and since I don't expect anyone to play 25 rounds), bounty ranks are randomized _every round_. 
 
-```js
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+Find more detailed rules in [the variant handbook](https://github.com/mitpokerbots/class-resources-2025/blob/main/variant.pdf).
