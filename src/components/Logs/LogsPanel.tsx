@@ -55,7 +55,7 @@ function fmtLog(l: LogLike): string {
     case "bounty_hit":
       return `Player ${l.player} hits bounty!`;
     case "loading":
-      return "Loading...";
+      return "Loading... Not responding? Wait a minute or two for the backend to spin up, or clear your cookies.";
     default:
       return JSON.stringify(l);
   }

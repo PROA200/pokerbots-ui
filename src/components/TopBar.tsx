@@ -15,7 +15,6 @@ export function TopBar() {
       <H1>can you beat our pokerbot?</H1>
       
       <h3>hold'em, except if you win while seeing your bounty card, you win 1.5x + 10</h3>
-      <p>Not responding? Wait a minute or two for the backend to spin up, or clear your cookies.</p>
     </div>
   );
 }
