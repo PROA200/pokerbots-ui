@@ -26,6 +26,7 @@ jobs:
         env:
           VITE_API_BASE: ${{ secrets.VITE_API_BASE }}
           VITE_USE_PROXY: "false"
+          VITE_GA_ID: ${{ secrets.VITE_GA_ID }}
       - run: npm run postbuild   # copy SPA fallback
       - uses: actions/upload-pages-artifact@v3
         with:
