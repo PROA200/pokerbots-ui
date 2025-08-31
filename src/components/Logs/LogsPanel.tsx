@@ -54,6 +54,8 @@ function fmtLog(l: LogLike): string {
       return `Player ${l.player} assigned bounty ${l.cards}`;
     case "bounty_hit":
       return `Player ${l.player} hits bounty!`;
+    case "loading":
+      return "Loading...";
     default:
       return JSON.stringify(l);
   }
