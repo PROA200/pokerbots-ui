@@ -26,7 +26,7 @@ export function RoundPipsRail({
   bot: number;
 }) {
   return (
-    <div style={{ display: "grid", gap: 8 }}>
+    <div style={{ display: "grid", gap: 8, fontSize: 16, alignItems: "center" }}>
       <Badge value={top} />
       <Badge value={mid} />
       <Badge value={bot} />

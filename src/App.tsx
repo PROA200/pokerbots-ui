@@ -88,7 +88,11 @@ export default function App() {
                 rel="noopener noreferrer"
               >
                 Wikimedia Commons
-              </a>
+              </a>, engine adapted from{" "}
+              <a href="https://github.com/mitpokerbots/engine-2025" target="_blank" rel="noopener noreferrer">
+                official
+              </a>, bot by Elliott Liu and Jordan Lefkowitz.
+
             </div>
           </div>
 

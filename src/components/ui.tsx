@@ -36,9 +36,9 @@ export function H1({ children }: { children: any }) {
     </h1>
   );
 }
-export function Small({ children }: { children: any }) {
-  return <span style={{ color: theme.sub, fontSize: 13 }}>{children}</span>;
-}
+// export function Small({ children }: { children: any }) {
+//   return <span style={{ color: theme.sub, fontSize: 13 }}>{children}</span>;
+// }
 export function Pill({
   children,
   onClick,
