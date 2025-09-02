@@ -15,3 +15,5 @@ Bounty Hold'em is a variant of No-Limit Texas Hold'em. The modification in the c
 For simplicity (and since I don't expect anyone to play 25 rounds), bounty ranks are randomized _every round_. 
 
 Find more detailed rules in [the variant handbook](https://github.com/mitpokerbots/class-resources-2025/blob/main/variant.pdf).
+
+Ready? Play at https://proa200.github.io/pokerbots-ui/!
