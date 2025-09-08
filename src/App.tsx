@@ -100,7 +100,7 @@ export default function App() {
             {/* Logs can handle empty state just fine */}
             <LogsPanel state={safeState} />
 
-            {/* ✅ render only when terminal AND we actually have state */}
+            {/* render only when terminal AND we actually have state */}
             {isTerminal && stateOut?.state && <TerminalStats state={stateOut.state} />}
           </div>
         </div>
